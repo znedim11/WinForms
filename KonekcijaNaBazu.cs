@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace WinForms
+{
+    class KonekcijaNaBazu:DbContext
+    {
+        public KonekcijaNaBazu() : base("PutanjaDoBaze")
+        {
+
+        }
+        public DbSet<Studenti> Studenti { get; set; }
+        public DbSet<Korisnik> Korisnici { get; set; }
+        public DbSet<Spolovi> Spolovi { get; set; }
+        public DbSet<Predmeti> Predmeti { get; set; }
+        public DbSet<KorisniciPredmeti> KorisniciPredmeti { get; set; }
+    }
+
+    [Table("Studenti")]
+    public class Studenti
+    {
+        public int Id { get; set; }
+        public string  ImePrezime { get; set; }
+    }
+}
